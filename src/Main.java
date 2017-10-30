@@ -26,5 +26,6 @@ public class Main {
 
         Scanner ex_scanner = new Scanner(System.in);
         ex = ex_scanner.nextLine();
+
     }
 }
