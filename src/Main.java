@@ -7,7 +7,6 @@ public class Main {
 
         String ex="";
         int nr=0;
-        boolean nr_test = true;
 
 
         System.out.println("Insert exercise number:");
