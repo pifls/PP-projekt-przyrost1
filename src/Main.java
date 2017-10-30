@@ -1,5 +1,7 @@
 import java.util.Scanner;
 import java.util.InputMismatchException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
 
@@ -7,6 +9,9 @@ public class Main {
 
         String ex = "";
         int nr = 0;
+
+        List<Integer> nr_list = new ArrayList<Integer>();
+        List<String> ex_list = new ArrayList<String>();
 
 
         while (!ex.equals("end")) {
@@ -32,6 +37,8 @@ public class Main {
 
             if (check.checkAnswer(ex) == true)
             {
+                nr_list.add(nr);
+                ex_list.add(ex);
                 System.out.println("QUERY SAVED");
             }
             else
