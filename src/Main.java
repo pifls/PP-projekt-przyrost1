@@ -15,8 +15,7 @@ public class Main {
         String ex = "";
         int nr = 0;
 
-        ArrayList<Integer> nr_list = new ArrayList<Integer>();
-        ArrayList<String> ex_list = new ArrayList<String>();
+        LinkedList<Query> query_list = new LinkedList<Query>();
 
 
         while (!ex.equals("end")) {
@@ -43,8 +42,7 @@ public class Main {
 
             if (check.checkAnswer(ex) == true)
             {
-                nr_list.add(nr);
-                ex_list.add(ex);
+                query_list.add(new Query(nr, ex));
                 System.out.println("QUERY SAVED");
             }
             else
@@ -64,6 +62,8 @@ public class Main {
         }
 
 
+        Collections.sort(query_list);
+
 
         File file = new File("odp.txt");
 
@@ -73,12 +73,12 @@ public class Main {
 
 
         FileWriter writer = new FileWriter(file);
-        int size = nr_list.size();
+        int size = query_list.size();
         for (int i=0;i<size;i++) {
-            String nr_line = nr_list.get(i).toString();
-            String ex_line = ex_list.get(i).toString();
+            int nr_line =  query_list.get(i).getNr();
+            String ex_line =   query_list.get(i).getEx().toString();
             writer.write(nr_line + ": " + ex_line);
-            if(i < size-1)//This prevent creating a blank like at the end of the file**
+            if(i < size-1)
             writer.write("\n");
         }
         writer.close();
