@@ -5,6 +5,7 @@ public class AnswerCheck {
 
     String answer = "";
 
+    /* Method that check if answer is in right order */
     public boolean checkAnswer(String ans){
 
         answer = ans.toLowerCase();
@@ -17,7 +18,6 @@ public class AnswerCheck {
         String finder = answer;
 
         int queryIndex;
-
 
         queryIndex = finder.indexOf("select");
         tab[0] = queryIndex;
@@ -89,7 +89,6 @@ public class AnswerCheck {
                 return false;
             }
         }
-
 
         return false;
 

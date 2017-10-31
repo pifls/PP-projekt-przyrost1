@@ -42,6 +42,15 @@ public class Main {
 
             if (check.checkAnswer(ex) == true)
             {
+                for(int i = 0; i < query_list.size(); i++)
+                {
+                    /* Overwriting ex with same number */
+                    if(query_list.get(i).getNr() == nr)
+                    {
+                        query_list.remove(i);
+                    }
+
+                }
                 query_list.add(new Query(nr, ex));
                 System.out.println("QUERY SAVED");
             }
@@ -61,16 +70,17 @@ public class Main {
 
         }
 
-
+        /* Sorting anserws */
         Collections.sort(query_list);
 
 
+        /* Saving to file */
         File file = new File("odp.txt");
 
-        if (!file.exists()) {
+        if (!file.exists())
+        {
             file.createNewFile();
         }
-
 
         FileWriter writer = new FileWriter(file);
         int size = query_list.size();
